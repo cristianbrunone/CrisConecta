@@ -2,4 +2,6 @@
 <resources>
 
     <style name="Theme.MiAplicacion" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.RedSocial" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
