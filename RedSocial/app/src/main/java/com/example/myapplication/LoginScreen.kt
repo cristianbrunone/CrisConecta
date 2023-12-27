@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -46,6 +47,43 @@ fun LoginScreen() {
     ) {
         Header(Modifier.align(Alignment.TopEnd))
         Body(Modifier.align(Alignment.Center))
+        Footer(Modifier.align(Alignment.BottomCenter))
+    }
+}
+
+@Composable
+fun Footer(modifier: Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .fillMaxHeight() // Esto hará que la columna ocupe todo el espacio vertical disponible
+    ) {
+        Spacer(modifier = Modifier.weight(1f)) // Espaciador para empujar el contenido hacia arriba
+        Divider(
+            color = Color(0xFFE0E0E0),
+            thickness = 1.dp,
+            modifier = Modifier
+                .height(1.dp)
+                .fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.size(16.dp))
+        SignUp()
+    }
+}
+
+@Composable
+fun SignUp() {
+    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+        Text(
+            text = "Não tem uma conta?", fontSize = 12.sp, color = Color(0xFFB5B5B5)
+        )
+        Text(
+            text = "Criar conta.",
+            Modifier.padding(horizontal = 8.dp),
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF4EA8E9)
+        )
     }
 }
 
@@ -78,7 +116,11 @@ fun SocialLogin() {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-        Image(painter = painterResource(id = R.drawable.transferir), contentDescription = "Social login fb", modifier = Modifier.size(26.dp))
+        Image(
+            painter = painterResource(id = R.drawable.transferir),
+            contentDescription = "Social login fb",
+            modifier = Modifier.size(26.dp)
+        )
         Text(
             text = "Continue com Cristian",
             fontSize = 14.sp,
