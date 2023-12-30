@@ -1,6 +1,7 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 import android.app.Activity
+import androidx.compose.animation.core.animateIntSizeAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,6 +22,8 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -165,7 +168,17 @@ fun LoginDivider() {
 
 @Composable
 fun LoginButton(loginEnable: Boolean) {
-    Button(onClick = { }, enabled = loginEnable, modifier = Modifier.fillMaxWidth()) {
+    Button(
+        onClick = { },
+        enabled = loginEnable,
+        modifier = Modifier.fillMaxWidth(),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color(0xFF4EA8E9),
+            disabledContainerColor = Color(0xFF78C8F9),
+            contentColor = Color.White,
+            disabledContentColor = Color.White
+        )
+    ) {
         Text(text = "Log in")
     }
 }
@@ -199,19 +212,19 @@ fun Password(password: String, onTextChanged: (String) -> Unit) {
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
         trailingIcon = {
-            val imagen = if(passwordVisibility) {
+            val imagen = if (passwordVisibility) {
                 Icons.Filled.VisibilityOff
             } else {
                 Icons.Filled.Visibility
             }
-            IconButton(onClick = { passwordVisibility = !passwordVisibility}) {
-                 Icon(imageVector = imagen, contentDescription = "Show password")
+            IconButton(onClick = { passwordVisibility = !passwordVisibility }) {
+                Icon(imageVector = imagen, contentDescription = "Show password")
             }
         },
-        visualTransformation = if(passwordVisibility) {
+        visualTransformation = if (passwordVisibility) {
             VisualTransformation.None
 
-        }else{
+        } else {
             PasswordVisualTransformation()
         }
     )
@@ -241,9 +254,10 @@ fun Email(email: String, onTextChanged: (String) -> Unit) {
 @Composable
 fun ImageLogo(modifier: Modifier) {
     Image(
-        painter = painterResource(id = R.drawable.logo_ciser),
+        painter = painterResource(id = R.drawable.logotipo_moda_loja_minimalista_preto_e_branco__1_),
         contentDescription = "Logo",
         modifier = modifier
+            .size(300.dp)
     )
 }
 
@@ -254,4 +268,5 @@ fun Header(modifier: Modifier) {
         imageVector = Icons.Default.Close,
         contentDescription = "Close app",
         modifier = modifier.clickable { activity.finish() })
+
 }
