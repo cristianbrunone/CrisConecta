@@ -7,6 +7,7 @@ data class NotasItemModel(
     val nombreNota: String,
     val contenido: String,
     val rutaSonido: Int,
-    val rutaImagen: Int
+    val rutaImagen: Int,
+    val imagenNueva : Int
 
 )
