@@ -49,7 +49,7 @@ fun CardItem(nota: NotasItemModel, playbackViewModel: NotasViewModel) {
             }
 
             Image(
-                painter = painterResource(id = selectedImage?.imagenNueva ?: imagen),
+                painter = painterResource(id = imagen),
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxSize()
@@ -61,4 +61,3 @@ fun CardItem(nota: NotasItemModel, playbackViewModel: NotasViewModel) {
         }
     }
 }
-

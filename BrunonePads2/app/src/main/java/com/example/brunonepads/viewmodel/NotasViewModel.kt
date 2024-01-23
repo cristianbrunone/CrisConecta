@@ -16,7 +16,9 @@ class NotasViewModel(application: Application) : AndroidViewModel(application) {
     private var selectedImageNota: NotasItemModel? = null
     private var isUpdatingImage: Boolean = false // Variable de control
     private val _selectedImage: MutableState<NotasItemModel?> = mutableStateOf(null)
+    private val selectedImagesMap = mutableMapOf<Int, NotasItemModel>()
     val selectedImage: MutableState<NotasItemModel?> = _selectedImage
+
 
     // Lista de notas
     val notasList: List<NotasItemModel> by lazy {
